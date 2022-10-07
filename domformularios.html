@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>DOM formulario</h1>
+    <input type="radio" name="colores" value="red">Rojo <br>
+    <input type="radio" name="colores" value="yellow">Amarillo <br>
+    <input type="radio" name="colores" value="orange">Naranja <br>
+    <input type="radio" name="colores" value="blue">Azul <br>
+    <button type="button" onclick="mostrarColor()">Color seleccionado</button>
+    <h2 id="resultadoColor">Soy un TITULO</h2>
+    <hr>
+    <label>Deporte favorito</label>
+    <select id="deportes" multiple >
+        <option value="Petanca">Petanca</option>
+        <option value="Canicas">Canicas</option>
+        <option value="Futbol">Futbol</option>
+        <option value="Baloncesto">Baloncesto</option>
+    </select>
+    <button type="button" onclick="mostrarDeporte()">Mostrar deporte seleccionado</button>
+    <h2 id="resultadoDeporte">Soy un TITULO</h2>
+</body>
+<script>
+
+    function mostrarColor(){
+        var colores= document.getElementsByName("colores");
+        for (var res of colores){
+            if(res.checked ==true){
+                document.getElementById("resultadoColor").innerText=" El color seleccionado es: " + res.value;
+            }
+        }
+    }
+
+    function mostrarDeporte(){
+        var select = document.getElementById("deportes");
+        var resp="";
+        for(var opcion of select.options){
+            if(opcion.selected ==true){
+                resp+= opcion.value +"; ";
+                console.log(resp);
+            }
+        }
+        document.getElementById("resultadoDeporte").innerText=" El deporte seleccionado es: " + resp;
+
+    }
+
+
+
+</script>
+</html>
